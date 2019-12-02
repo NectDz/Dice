@@ -1,0 +1,115 @@
+# Kevin Granados 12/1/19
+
+import time
+import random
+
+# Dice
+
+message = ("1","2","3","4","5","6")
+
+message2 = ("1","2","3","4","5","6")
+
+# Stop Counter
+
+counter = 0
+
+def stop():
+  while True:
+    for i in range(counter):
+      break
+
+# Restart
+
+def restart():
+  while True:
+    restart = input("Type 'R' to re-roll\nType 'Q' to stop\nEnter Here: ")
+    restart = restart.upper()
+    if restart == 'R':
+      print("")
+      print("Re-rolling...")
+      print("")
+      game()
+    elif restart == 'Q':
+      print("")
+      print("Ending program...")
+      stop()
+    else : 
+      print("")
+      print("Did not understand re-rolling anyways...")
+      game()
+
+# Intro
+
+def intro():
+  print(" - Welcome to Kevin Dice Simulator -")
+  time.sleep(.1)
+  print("           ____")
+  print("         /\ ' .\    _____")
+  time.sleep(.1)
+  print("        /: \____\  / .  / \ ")
+  print("        \ '/  . / /____/.. \ ")
+  time.sleep(.1)
+  print("         \/____/  \ '  '\  / ")
+  print("                   \__'__\/")
+
+# Main
+
+def main():
+  global counter
+  counter += 1
+  while True:
+    intro()
+    time.sleep(1)
+    # User asked to type Start
+    start = input("\nType 'Start' to begin: ")
+    start = start.upper()
+    if start == 'START':
+      game()
+    else : 
+      time.sleep(1)
+      print("")
+      print("Did not understand restarting anyways...")
+      print("-------------------------------")
+      print("")
+
+# Game
+
+def game():
+  global counter
+  global dice2
+  global dice
+  counter += 1
+  while True:
+    # First Portion
+    # Dice is randomized
+    dice2 = random.choice(message2)
+    dice = random.choice(message)
+    # Second Portion
+    # Dice text before being shown
+    print("-------------------------------")
+    print("")
+    print("Rolling both dices hang on...")
+    time.sleep(1)
+    print("")
+    print("3")
+    time.sleep(1)
+    print("")
+    print("2")
+    time.sleep(1)
+    print("")
+    print("1")
+    time.sleep(1)
+    print("")
+    # Dice is shown
+    print("Dice 1 rolled - " + dice)
+    print("-------------------------------")
+    print("Dice 2 rolled - " + dice2)
+    print("-------------------------------")
+    print("")
+    # Third Portion
+    # User is asked to restart
+    restart()
+
+# Main Function
+
+main()
